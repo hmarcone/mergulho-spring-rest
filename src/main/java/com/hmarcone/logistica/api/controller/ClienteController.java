@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.hmarcone.domain.service.CatalogoClienteService;
 import com.hmarcone.logistica.domain.model.Cliente;
 import com.hmarcone.logistica.domain.repository.ClienteRepository;
+import com.hmarcone.logistica.domain.service.CatalogoClienteService;
 
 import lombok.AllArgsConstructor;
 
@@ -33,7 +34,7 @@ import lombok.AllArgsConstructor;
 public class ClienteController {
 
 	private ClienteRepository clienteRepository;
-	//private CatalogoClienteService catalogoClienteService;	
+	private CatalogoClienteService catalogoClienteService;	
 		
 	
 //	@PersistenceContext
@@ -51,13 +52,12 @@ public class ClienteController {
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
 	}
-
-//	
-//	@PostMapping
-//	@ResponseStatus(HttpStatus.CREATED)
-//	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
-//		return catalogoClienteService.salvar(cliente);
-//	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
+		return catalogoClienteService.salvar(cliente);
+	}
 //	
 //	@PutMapping("/{clienteId}")
 //	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId, 
