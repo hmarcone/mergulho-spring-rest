@@ -58,29 +58,29 @@ public class ClienteController {
 	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
 		return catalogoClienteService.salvar(cliente);
 	}
-//	
-//	@PutMapping("/{clienteId}")
-//	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId, 
-//			@Valid @RequestBody Cliente cliente) {
-//		if (!clienteRepository.existsById(clienteId)) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		
-//		cliente.setId(clienteId);
-//		cliente = catalogoClienteService.salvar(cliente);
-//		
-//		return ResponseEntity.ok(cliente);
-//	}
-//	
-//	@DeleteMapping("/{clienteId}")
-//	public ResponseEntity<Void> remover(@PathVariable Long clienteId) {
-//		if (!clienteRepository.existsById(clienteId)) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		
-//		catalogoClienteService.excluir(clienteId);
-//		
-//		return ResponseEntity.noContent().build();
-//	}
+	
+	@PutMapping("/{clienteId}")
+	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId, 
+			@Valid @RequestBody Cliente cliente) {
+		if (!clienteRepository.existsById(clienteId)) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		cliente.setId(clienteId);
+		cliente = catalogoClienteService.salvar(cliente);
+		
+		return ResponseEntity.ok(cliente);
+	}
+	
+	@DeleteMapping("/{clienteId}")
+	public ResponseEntity<Void> remover(@PathVariable Long clienteId) {
+		if (!clienteRepository.existsById(clienteId)) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		catalogoClienteService.excluir(clienteId);
+		
+		return ResponseEntity.noContent().build();
+	}
 	
 }
