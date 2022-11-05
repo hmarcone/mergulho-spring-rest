@@ -41,8 +41,8 @@ public class Entrega {
 	
 	private BigDecimal taxa;
 	
-	@OneToMany(mappedBy = "entrega", cascade = CascadeType.ALL)
-	private List<Ocorrencia> ocorrencias = new ArrayList<>();
+////	@OneToMany(mappedBy = "entrega", cascade = CascadeType.ALL)
+//	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 	
 	@Enumerated(EnumType.STRING)
 	private StatusEntrega status;
@@ -51,16 +51,16 @@ public class Entrega {
 	
 	private OffsetDateTime dataFinalizacao;
 
-	public Ocorrencia adicionarOcorrencia(String descricao) {
-		Ocorrencia ocorrencia = new Ocorrencia();
-		ocorrencia.setDescricao(descricao);
-		ocorrencia.setDataRegistro(OffsetDateTime.now());
-		ocorrencia.setEntrega(this);
-		
-		this.getOcorrencias().add(ocorrencia);
-		
-		return ocorrencia;
-	}
+//	public Ocorrencia adicionarOcorrencia(String descricao) {
+//		Ocorrencia ocorrencia = new Ocorrencia();
+//		ocorrencia.setDescricao(descricao);
+//		ocorrencia.setDataRegistro(OffsetDateTime.now());
+//		ocorrencia.setEntrega(this);
+//		
+//		this.getOcorrencias().add(ocorrencia);
+//		
+//		return ocorrencia;
+//	}
 
 	public void finalizar() {
 		if (naoPodeSerFinalizada()) {
